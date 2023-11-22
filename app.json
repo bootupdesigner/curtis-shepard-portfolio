@@ -3,8 +3,15 @@
     "name": "client",
     "slug": "client",
     "version": "1.0.0",
+    "web": {
+      "bundler": "metro"
+    },
+    "scheme": "curtis-shepard-portfolio",
     "assetBundlePatterns": [
       "**/*"
+    ],
+    "plugins": [
+      "expo-router"
     ]
   }
 }
