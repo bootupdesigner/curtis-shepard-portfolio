@@ -27,11 +27,11 @@ const Platform = ({
 
     return (
         <View >
-            <Text style={{ fontSize: 18.72, fontWeight: 'bold', }}>{heading}</Text>
+            <Text style={{ fontSize: 18.72, fontWeight: 'bold',color:'white', }}>{heading}</Text>
 
-            <Text style={{ fontSize: 16 }}>{paragraph}</Text>
+            <Text style={{ fontSize: 16 , color:'white',}}>{paragraph}</Text>
             <View style={{ width: '100%', justifyContent: 'center', }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', }}>Samples</Text>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color:'white',}}>Gallery</Text>
 
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     {
@@ -46,7 +46,7 @@ const Platform = ({
                     }
                 </ScrollView>
             </View>
-            <Text>{summary}</Text>
+            <Text style={{ fontSize: 16 , color:'white',}}>{summary}</Text>
             
         </View>
     )

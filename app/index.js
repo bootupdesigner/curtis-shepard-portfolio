@@ -72,7 +72,7 @@ export const skills = [
     dependent: 'Fontisto',
     description: 'HTML',
     icon: 'html5',
-    color: 'black',
+    color: 'white',
   },
   {
     id: 'css',
@@ -81,7 +81,7 @@ export const skills = [
     dependent: 'Fontisto',
     description: 'CSS',
     icon: 'css3',
-    color: 'black',
+    color: 'white',
   },
   {
     id: 'javascript',
@@ -90,7 +90,7 @@ export const skills = [
     dependent: 'Ionicons',
     description: 'JavaScript',
     icon: 'logo-javascript',
-    color: 'black',
+    color: 'white',
   },
 ];
 
@@ -120,7 +120,7 @@ export default function Page() {
 
   return (
     <SafeAreaView>
-      <View style={{paddingHorizontal:10,}}>
+      <View style={{paddingHorizontal:10,backgroundColor:'black',}}>
         <ScrollView showsVerticalScrollIndicator={false}>
             <ProfileHeading/>
 
