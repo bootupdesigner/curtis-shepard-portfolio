@@ -96,10 +96,10 @@ export const skills = [
 ];
 
 
-const about = [
+export const about = [
 
   {
-    id: 1,
+    id: 'e-commerce-website-design',
     heading: 'E-Commerce Website Design',
     paragraph: `Creative website designs bring joy to website and app users across the globe. My goal is to share my creativity with users who need the projects I help to inspire and design. I help project owners meet their marketing and advertising needs through web and mobile app development.`,
     images: [Ecommerce1, Ecommerce2, Ecommerce3],
@@ -107,8 +107,8 @@ const about = [
   },
 
   {
-    id: 2,
-    heading: 'Mobile App Designs',
+    id: 'mobile-app-design',
+    heading: 'Mobile App Design',
     paragraph: `Creative website designs bring joy to website and app users across the globe. My goal is to share my creativity with users who need the projects I help to inspire and design. I help project owners meet their marketing and advertising needs through web and mobile app development.`,
     images: [Android1, Android2, Android3],
     summary: ``,
@@ -158,9 +158,6 @@ export default function Page() {
                       color={i.color}
                       icon={i.icon}
                       title={i.title}
-                      description={i.description}
-                      shortDescription={i.shortDescription}
-                      link={i.link}
                       dependent={i.dependent} />
                   </View>
                 ))
@@ -201,13 +198,9 @@ export default function Page() {
 
                     <Skill
                       id={i.id}
-                      image={i.image}
                       color={i.color}
                       icon={i.icon}
                       title={i.title}
-                      description={i.description}
-                      shortDescription={i.shortDescription}
-                      link={i.link}
                       dependent={i.dependent} />
                   </View>
                 ))

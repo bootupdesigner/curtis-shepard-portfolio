@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "client",
-    "slug": "client",
+    "name": "curtis shepard portfolio",
+    "slug": "cs portfolio",
     "version": "1.0.0",
     "web": {
       "bundler": "metro"

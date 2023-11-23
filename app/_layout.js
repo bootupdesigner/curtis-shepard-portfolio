@@ -1,6 +1,5 @@
 import { Drawer } from 'expo-router/drawer';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import Experience from './experience';
 
 export default function Layout() {
     return (
@@ -22,12 +21,20 @@ export default function Layout() {
                 }} />
 
             <Drawer.Screen
+                name='skill'
+                options={{
+                    drawerLabel: 'Skill',
+                    presentation: 'modal',
+                    title: 'Skill',
+                    showDrawerLabel: false,
+
+                }} />
+
+            <Drawer.Screen
                 name='experience'
                 options={{
                     drawerLabel: 'Experience',
-                    presentation: 'modal',
                     title: 'Experience',
-                    showDrawerLabel: false,
 
                 }} />
         </Drawer>
