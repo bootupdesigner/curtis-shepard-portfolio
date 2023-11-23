@@ -18,18 +18,17 @@ const mission = {
 const ProfileHeading = ({ name, image, jobTitle, heading, paragraph }) => {
     const isTabletOrMobile = useMediaQuery({ query: '(max-device-width: 1224px)' });
 
-    const makePhoneCall = () => {
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-device-width: 1224px)'
+    });
+
+ const makePhoneCall = () => {
         Linking.openURL('tel:+19543489783')
     };
 
     const sendEmail = () => {
         Linking.openURL('mailto:sheparcurtis2@gmail.com')
     };
-
-    const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-device-width: 1224px)'
-    });
-
 
     return (
         <>

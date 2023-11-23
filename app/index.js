@@ -13,6 +13,7 @@ import Android2 from '../assets/images/Android2.jpg';
 import Android3 from '../assets/images/Android3.jpg';
 import Platform from "../components/Platform";
 import ProfileHeading from "../components/profileHeading";
+import Footer from "../components/Footer";
 
 export const skills = [
   {
@@ -120,51 +121,104 @@ export default function Page() {
 
   return (
     <SafeAreaView>
-      <View style={{paddingHorizontal:10,backgroundColor:'black',}}>
+      {isDesktopOrLaptop ? (
+
         <ScrollView showsVerticalScrollIndicator={false}>
-            <ProfileHeading/>
+          <View style={{ paddingHorizontal: 100, backgroundColor: 'black', }}>
 
-          <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Web Development Experience</Text>
+            <ProfileHeading />
 
-          {
-            about.map((about, index) => (
-              <View key={index}
-                style={{
-                  margin: 5,
-                }}>
-                <Platform
-                  id={about.id}
-                  heading={about.heading}
-                  paragraph={about.paragraph}
-                  images={about.images}
-                />
-              </View>
-            ))
-          }
-          <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Website & App Development Skills</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Web Development Experience</Text>
 
             {
-              skills.map((i, id) => (
-                <View style={{ flexDirection: 'row' }} key={id}>
-
-                  <Skill
-                    id={i.id}
-                    image={i.image}
-                    color={i.color}
-                    icon={i.icon}
-                    title={i.title}
-                    description={i.description}
-                    shortDescription={i.shortDescription}
-                    link={i.link}
-                    dependent={i.dependent} />
+              about.map((about, index) => (
+                <View key={index}
+                  style={{
+                    margin: 5,
+                  }}>
+                  <Platform
+                    id={about.id}
+                    heading={about.heading}
+                    paragraph={about.paragraph}
+                    images={about.images}
+                  />
                 </View>
               ))
             }
-          </ScrollView>
+            <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Website & App Development Skills</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+
+              {
+                skills.map((i, id) => (
+                  <View style={{ flexDirection: 'row' }} key={id}>
+
+                    <Skill
+                      id={i.id}
+                      image={i.image}
+                      color={i.color}
+                      icon={i.icon}
+                      title={i.title}
+                      description={i.description}
+                      shortDescription={i.shortDescription}
+                      link={i.link}
+                      dependent={i.dependent} />
+                  </View>
+                ))
+              }
+            </ScrollView>
+          </View >
+          <Footer />
 
         </ScrollView>
-      </View >
+      ) : (
+          <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={{ paddingHorizontal: 10, backgroundColor: 'black', }}>
+<ProfileHeading />
+
+            <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Web Development Experience</Text>
+
+            {
+              about.map((about, index) => (
+                <View key={index}
+                  style={{
+                    margin: 5,
+                  }}>
+                  <Platform
+                    id={about.id}
+                    heading={about.heading}
+                    paragraph={about.paragraph}
+                    images={about.images}
+                  />
+                </View>
+              ))
+            }
+            <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Website & App Development Skills</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+
+              {
+                skills.map((i, id) => (
+                  <View style={{ flexDirection: 'row' }} key={id}>
+
+                    <Skill
+                      id={i.id}
+                      image={i.image}
+                      color={i.color}
+                      icon={i.icon}
+                      title={i.title}
+                      description={i.description}
+                      shortDescription={i.shortDescription}
+                      link={i.link}
+                      dependent={i.dependent} />
+                  </View>
+                ))
+              }
+            </ScrollView>
+            </View >
+            <Footer />
+
+          </ScrollView>
+      )}
+
     </SafeAreaView >
 
   );
