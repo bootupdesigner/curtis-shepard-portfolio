@@ -3,7 +3,9 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Layout() {
     return (
-        < Drawer >
+        < Drawer screenOptions={{
+            headerShown:false,
+        }}>
             <Drawer.Screen name='index' options={{
                 drawerLabel: "Home",
                 title: "Web Developer Portfolio",

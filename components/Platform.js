@@ -11,6 +11,7 @@ const Platform = ({
     heading,
     paragraph,
     images,
+    avifImages,
 
 
 }) => {
@@ -49,40 +50,50 @@ const Platform = ({
         <>
             {isDesktopOrLaptop ? (
                 <View>
-                    <Text style={{ fontSize: 18.72, fontWeight: 'bold', color: 'white', marginVertical: 3, }}>{heading}</Text>
+                    <Text style={{ fontSize: 18.72, fontWeight: 'bold', color: 'gray', marginVertical: 3, }}>{heading}</Text>
 
-                    <Text style={{ fontSize: 16, marginVertical: 3, color: 'white', }}>{paragraph}</Text>
+                    <Text style={{ fontSize: 16, marginVertical: 3, color: 'gray', }}>{paragraph}</Text>
                     <View style={{ width: '100%', justifyContent: 'center', }}>
-                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white', marginVertical: 3, }}>Gallery</Text>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'gray', marginVertical: 3, }}>Gallery</Text>
                         {/* images scroll */}
 
                         <ScrollView horizontal showsHorizontalScrollIndicator={false} >
                             {
                                 images.map((image, index) => (
-                                    <View key={index} style={{ margin: 10, elevation: 5, marginVertical: 3, borderRadius: 3, }}>
+                                    <View key={index} style={{ margin: 10, elevation: 5,  borderRadius: 3, }}>
                                         <Image
                                             source={image}
+                                            srcSet={avifImages}
                                             style={imageStyle} />
 
                                     </View>
                                 ))
                             }
                         </ScrollView>
+
+                        <Pressable
+                            onPress={() => navigateToExperience(id)}
+                            style={{ width: '100%', marginVertical: 10, borderColor: 'gray', borderWidth: 1, padding: 10, borderRadius: 100 }}>
+                            <Text style={{
+                                color: 'gray', fontSize: 16, textAlign: 'center',
+                            }}>{heading} Experience</Text>
+                        </Pressable>
                     </View>
                 </View>
             ) : (
                 <View >
-                    <Text style={{ marginVertical: 3, fontSize: 18.72, fontWeight: 'bold', color: 'white', }}>{heading}</Text>
+                    <Text style={{ marginVertical: 3, fontSize: 18.72, fontWeight: 'bold', color: 'gray', }}>{heading}</Text>
 
-                    <Text style={{ marginVertical: 3, fontSize: 16, color: 'white', }}>{paragraph}</Text>
+                    <Text style={{ marginVertical: 3, fontSize: 16, color: 'gray', }}>{paragraph}</Text>
                     <View style={{ width: '100%', justifyContent: 'center', }}>
-                        <Text style={{ marginVertical: 3, fontSize: 16, fontWeight: 'bold', color: 'white', }}>Gallery</Text>
+                        <Text style={{ marginVertical: 3, fontSize: 16, fontWeight: 'bold', color: 'gray', }}>Gallery</Text>
 
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                             {
                                 images.map((image, index) => (
                                     <View key={index} style={{ flexDirection: 'row', margin: 10, elevation: 5, backgroundColor: 'grey', borderRadius: 3, }}>
                                         <Image
+                                        srcSet={avifImages}
                                             source={image}
                                             style={imageStyle} />
 
@@ -92,9 +103,9 @@ const Platform = ({
                         </ScrollView>
                         <Pressable
                             onPress={() => navigateToExperience(id)}
-                            style={{ width: '100%', marginVertical: 3, borderColor: 'white', borderWidth: 1, padding: 10, borderRadius: 100 }}>
+                            style={{ width: '100%', marginVertical: 3, borderColor: 'gray', borderWidth: 1, padding: 10, borderRadius: 100 }}>
                             <Text style={{
-                                color: 'white', fontSize: 16, textAlign: 'center',
+                                color: 'gray', fontSize: 16, textAlign: 'center',
                             }}>{heading} Experience</Text>
                         </Pressable>
                     </View>

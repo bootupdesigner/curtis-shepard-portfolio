@@ -4,6 +4,7 @@
     "slug": "cs portfolio",
     "version": "1.0.0",
     "web": {
+      "description":"Curtis Shepard's web developer / designer portfolio. Hire a website designer with experience in mobile marketing for iOS and Android devices.",
       "bundler": "metro"
     },
     "scheme": "curtis-shepard-portfolio",

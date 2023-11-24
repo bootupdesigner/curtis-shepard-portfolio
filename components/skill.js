@@ -20,7 +20,7 @@ const Skill = ({ id, icon, title, color ,dependent}) => {
                  : <Ionicons name={icon} size={48} color={color} />
                  }
 
-            <Text onPress={() => navigateToSKill(id)} style={{ textAlign: 'center', color:'white',fontSize: 18.72, fontWeight: 'bold' }}>{title}</Text>
+            <Text onPress={() => navigateToSKill(id)} style={{ textAlign: 'center', color:'gray',fontSize: 18.72, fontWeight: 'bold' }}>{title}</Text>
 
         </Pressable>
     )

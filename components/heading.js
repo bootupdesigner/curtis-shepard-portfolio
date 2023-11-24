@@ -1,4 +1,4 @@
-import { StyleSheet, Text, ScrollView, View, Pressable, Platform, StatusBar, } from 'react-native'
+import { StyleSheet, Text, ScrollView, View, Pressable, Platform, StatusBar,Linking } from 'react-native'
 import React from 'react'
 import { useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -12,14 +12,41 @@ const menu = [
         name: 'Experience',
     },
 ]
-const Heading = ({back}) => {
+const Heading = ({ back }) => {
     const navigate = useNavigation();
     return (
-        <Pressable style={{ flexDirection: 'row', padding: 10, alignContent: 'center' }}
-            onPress={() => navigate.goBack()}>
-            <Ionicons name="arrow-back" size={24} color="black" />
-            <Text style={{fontWeight:'bold',fontSize: 16}}>Back</Text>
-        </Pressable>
+        <>
+            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor:'black',paddingVertical:10}} >
+              
+
+            <View style={{ width: '25%',paddingHorizontal:10 }}>
+                    <Pressable style={{ padding: 10, alignItems: 'center' }}
+                        onPress={() => navigate.openDrawer()}>
+                        <Ionicons name="menu" size={24} color="gray" />
+                    </Pressable>
+                </View>
+
+                <View style={{ width: '50%', }}>
+                    <Pressable 
+                    onPress={()=> Linking.openURL('sms:+19543489783')}
+                    style={{ padding: 10,borderWidth:1,borderStyle:'solid',borderColor:'gray',borderRadius:100, }}>
+
+                        <Text style={{ fontWeight: 'bold', textAlign: 'center', color: 'gray', fontSize: 16 }}>Schedule a Interview</Text>
+                    </Pressable>
+                </View>
+
+                {back && (
+                    <View style={{ width: '25%' ,paddingHorizontal:10,}}>
+                        <Pressable style={{ flexDirection: 'row', padding: 10, alignItems: 'center' }}
+                            onPress={() => navigate.goBack()}>
+                            <Ionicons name="arrow-back" size={24} color="gray" />
+                            <Text style={{ fontWeight: 'bold', color: 'gray', fontSize: 16 }}>Back</Text>
+                        </Pressable>
+                    </View>
+                )}
+
+            </View>
+        </>
     )
 
 }
