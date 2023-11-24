@@ -24,7 +24,7 @@ const Skill = () => {
 
       <View >
         <ScrollView>
-        <Heading back={Platform.OS === 'ios' ? true : false} />
+        <Heading back={true} />
 
         <View style={{ paddingHorizontal: 10, justifyContent: 'space-evenly', alignItems: 'center', flex:1 }}>
           <Image source={ecommerce2} style={{height:200,width:200,}}/>
