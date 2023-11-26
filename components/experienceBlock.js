@@ -5,7 +5,7 @@ import { useNavigation } from 'expo-router';
 import { useMediaQuery } from 'react-responsive';
 import '@expo/match-media'
 
-const Platform = ({
+const ExperienceBlock = ({
 
     id,
     heading,
@@ -186,4 +186,4 @@ const Platform = ({
 const styles = StyleSheet.create({
 })
 
-export default Platform
+export default ExperienceBlock

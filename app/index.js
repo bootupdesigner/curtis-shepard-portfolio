@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, Platform, StatusBar } from "react-native";
 import { useMediaQuery } from 'react-responsive'
 import '@expo/match-media'
 import { useLocalSearchParams, Link, useNavigation } from 'expo-router';
@@ -6,11 +6,11 @@ import { useLocalSearchParams, Link, useNavigation } from 'expo-router';
 import Skill from "../components/skill";
 import Heading from "../components/heading";
 
-import Platform from "../components/Platform";
 import ProfileHeading from "../components/profileHeading";
 import Footer from "../components/Footer";
 
 import { about, skills } from '../assets/data.js';
+import ExperienceBlock from "../components/experienceBlock";
 
 export default function Page() {
   const isDesktopOrLaptop = useMediaQuery({
@@ -22,7 +22,7 @@ export default function Page() {
       {isDesktopOrLaptop ? (
         <SafeAreaView>
 
-          <ScrollView showsVerticalScrollIndicator={false} stickyHeaderIndices={[0]}>
+          <ScrollView showsVerticalScrollIndicator={false} stickyHeaderIndices={[0]} >
             <View>
               <Heading back={false} />
             </View>
@@ -38,7 +38,7 @@ export default function Page() {
                     style={{
                       margin: 5,
                     }}>
-                    <Platform
+                    <ExperienceBlock
                       id={about.id}
                       heading={about.heading}
                       paragraph={about.paragraph}
@@ -74,51 +74,51 @@ export default function Page() {
         </SafeAreaView>
       ) : (
         <SafeAreaView>
-          <ScrollView showsVerticalScrollIndicator={false} stickyHeaderIndices={[0]}>
-            <View>
-              <Heading back={false} />
-            </View>
-            <View style={{ paddingHorizontal: 10, backgroundColor: 'black', }}>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View>
+                <Heading back={false} />
+              </View>
+              <View style={{ paddingHorizontal: 10, backgroundColor: 'black', }}>
 
-              <ProfileHeading />
+                <ProfileHeading />
 
-              <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Web Development Experience</Text>
-
-              {
-                about.map((aboutData, index) => (
-                  <View key={index} style={{ margin: 5 }}>
-                    <Platform
-                      id={aboutData.id}
-                      heading={aboutData.heading}
-                      paragraph={aboutData.paragraph}
-                      images={aboutData.images}
-                      button={true} 
-                    />
-                  </View>
-                ))
-              }
-
-              <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Website & App Development Skills</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Web Development Experience</Text>
 
                 {
-                  skills.map((i, id) => (
-                    <View style={{ flexDirection: 'row' }} key={id}>
-
-                      <Skill
-                        id={i.id}
-                        color={i.color}
-                        icon={i.icon}
-                        title={i.title}
-                        dependent={i.dependent} />
+                  about.map((aboutData, index) => (
+                    <View key={index} style={{ margin: 5 }}>
+                      <ExperienceBlock
+                        id={aboutData.id}
+                        heading={aboutData.heading}
+                        paragraph={aboutData.paragraph}
+                        images={aboutData.images}
+                        button={true}
+                      />
                     </View>
                   ))
                 }
-              </ScrollView>
-            </View >
-            <Footer />
 
-          </ScrollView>
+                <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'orange', textAlign: 'center', }}>Website & App Development Skills</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+
+                  {
+                    skills.map((i, id) => (
+                      <View style={{ flexDirection: 'row' }} key={id}>
+
+                        <Skill
+                          id={i.id}
+                          color={i.color}
+                          icon={i.icon}
+                          title={i.title}
+                          dependent={i.dependent} />
+                      </View>
+                    ))
+                  }
+                </ScrollView>
+              </View >
+              <Footer />
+
+            </ScrollView>
         </SafeAreaView>
       )
       }
@@ -130,7 +130,7 @@ export default function Page() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 30,
+    paddingTop: Platform.OS === "android" ?
+        StatusBar.currentHeight : 0,
   },
 });

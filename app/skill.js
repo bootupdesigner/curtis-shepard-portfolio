@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { useGlobalSearchParams } from 'expo-router';
+import { Fontisto, Ionicons } from '@expo/vector-icons';
+import { useMediaQuery } from 'react-responsive';
+import '@expo/match-media';
+
 import { skills } from '../assets/data.js';
-import {Fontisto, Ionicons} from '@expo/vector-icons';
+
 import Heading from '../components/heading';
+import Footer from '../components/Footer.js';
 
 const Skill = () => {
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  });
+
   const glob = useGlobalSearchParams();
   const skillId = glob.skillId;
 
@@ -19,30 +29,79 @@ const Skill = () => {
     );
   }
   return (
+   <>
+   {isDesktopOrLaptop ? (
+     <SafeAreaView>
+
+     <ScrollView showsVerticalScrollIndicator={false} stickyHeaderIndices={[0]}>
+       <View>
+         <Heading back={true} />
+       </View>
+
+       <View style={{ paddingHorizontal: 100, backgroundColor: 'black', }}>
+
+         <Text style={{ fontWeight: 'bold',paddingVertical:10, fontSize: 32, color: 'gray', textAlign: 'center', }}>{selectedSkill.shortDescription}</Text>
+
+         {selectedSkill.dependent === 'Fontisto' ? (
+           <View style={{ alignItems: 'center', paddingVertical:10,}}>
+             <Fontisto name={selectedSkill.icon} size={48} color={selectedSkill.color} />
+           </View>
+         ) : (
+           <View style={{ alignItems: 'center', paddingVertical:10,}}>
+             <Ionicons name={selectedSkill.icon} size={48} color={selectedSkill.color} />
+           </View>
+         )
+         }
+
+         <View>
+           <Text style={{ fontWeight: 'bold', fontSize: 24, paddingVertical:10,color: 'gray', textAlign: 'center', }}>{selectedSkill.skillName}</Text>
+
+           <Text style={{ fontWeight: 'bold', paddingVertical:10,fontSize: 18.72, color: 'gray', alignSelf: 'flex-start', }}>{selectedSkill.title}</Text>
+
+           <Text style={{ color: 'gray', paddingVertical:10,fontSize: 16, }}>{selectedSkill.description}</Text>
+         </View>
+
+       </View>
+       <Footer />
+     </ScrollView>
+   </SafeAreaView>
+   ):(
     <SafeAreaView>
 
-        <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false} stickyHeaderIndices={[0]}>
+      <View>
         <Heading back={true} />
+      </View>
 
-        <View style={{ paddingHorizontal: 10, justifyContent: 'space-evenly', alignItems: 'center', flex:1 }}>
-          <Text style={{ fontWeight: 'bold', fontSize: 32, }}>{selectedSkill.shortDescription}</Text>
+      <View style={{ paddingHorizontal: 10, backgroundColor: 'black', }}>
 
-          {selectedSkill.dependent === 'Fontisto' ?
+        <Text style={{ fontWeight: 'bold',paddingVertical:10, fontSize: 32, color: 'gray', textAlign: 'center', }}>{selectedSkill.shortDescription}</Text>
+
+        {selectedSkill.dependent === 'Fontisto' ? (
+          <View style={{ alignItems: 'center', paddingVertical:10,}}>
             <Fontisto name={selectedSkill.icon} size={48} color={selectedSkill.color} />
-            : <Ionicons name={selectedSkill.icon} size={48} color={selectedSkill.color} />
-          }
-
-          <View>
-            <Text style={{ fontWeight: 'bold', fontSize: 24, textAlign: 'center', }}>Experience</Text>
-
-            <Text style={{ fontWeight: 'bold', fontSize: 18.72, alignSelf: 'flex-start', }}>{selectedSkill.title}</Text>
-
-            <Text>{selectedSkill.description}</Text>
           </View>
+        ) : (
+          <View style={{ alignItems: 'center', paddingVertical:10,}}>
+            <Ionicons name={selectedSkill.icon} size={48} color={selectedSkill.color} />
+          </View>
+        )
+        }
 
+        <View>
+          <Text style={{ fontWeight: 'bold', fontSize: 24, paddingVertical:10,color: 'gray', textAlign: 'center', }}>{selectedSkill.skillName}</Text>
+
+          <Text style={{ fontWeight: 'bold', paddingVertical:10,fontSize: 18.72, color: 'gray', alignSelf: 'flex-start', }}>{selectedSkill.title}</Text>
+
+          <Text style={{ color: 'gray', paddingVertical:10,fontSize: 16, }}>{selectedSkill.description}</Text>
         </View>
-        </ScrollView>
-    </SafeAreaView>
+
+      </View>
+      <Footer />
+    </ScrollView>
+  </SafeAreaView>
+   )}
+   </>
   );
 };
 

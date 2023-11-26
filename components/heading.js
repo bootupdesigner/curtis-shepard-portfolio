@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable,Linking } from 'react-native'
+import { StyleSheet, Text, View, Pressable,Linking,Platform,StatusBar } from 'react-native'
 import React from 'react'
 import { useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -16,7 +16,7 @@ const Heading = ({ back }) => {
     const navigate = useNavigation();
     return (
         <>
-            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor:'black',paddingVertical:10}} >
+            <View style={styles.container} >
               
 
             <View style={{ width: '25%' }}>
@@ -55,5 +55,11 @@ export default Heading
 
 const styles = StyleSheet.create({
     container: {
-    }
+        paddingTop: Platform.OS === "android" ?
+            StatusBar.currentHeight : 10,
+            flexDirection: 'row',
+             alignItems: 'center', 
+             backgroundColor:'black',
+             paddingBottom:10
+      },
 })

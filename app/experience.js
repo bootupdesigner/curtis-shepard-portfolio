@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, Image, View, ScrollView } from 'react-native';
 import { useGlobalSearchParams } from 'expo-router';
 import { useNavigation } from 'expo-router';
-import { useMediaQuery } from 'react-responsive';
-
+import { useMediaQuery } from 'react-responsive'
+import '@expo/match-media'
 import { about, skills } from '../assets/data.js';
 
 import Heading from '../components/heading';
 import Footer from '../components/Footer.js';
-import Platform from '../components/Platform.js';
+import ExperienceBlock from '../components/experienceBlock';
 import Skill from '../components/skill.js';
 
 const Experience = () => {
@@ -73,7 +73,7 @@ const Experience = () => {
                                 }
                             </View>
 
-                            <Platform
+                            <ExperienceBlock
                                 id={selectedExperience.id}
                                 images={selectedExperience.images}
                                 paragraph={selectedExperience.paragraph}
@@ -114,7 +114,7 @@ const Experience = () => {
                                 }
                             </View>
 
-                            <Platform
+                            <ExperienceBlock
                                 id={selectedExperience.id}
                                 images={selectedExperience.images}
                                 paragraph={selectedExperience.paragraph}

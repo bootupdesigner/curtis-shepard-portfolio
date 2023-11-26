@@ -25,7 +25,8 @@ export const skills = [
     },
     {
       id: 'mobile-development',
-      title: 'Mobile Development',
+      title: 'Mobile Marketing & Advertising',
+      skillName:'React Native',
       shortDescription: 'iOS & Android Development',
       icon: 'react',
       link: 'frontend',
