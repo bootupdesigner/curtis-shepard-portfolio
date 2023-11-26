@@ -1,4 +1,4 @@
-import { StyleSheet, Text, ScrollView, View, Pressable, Platform, StatusBar,Linking } from 'react-native'
+import { StyleSheet, Text, View, Pressable,Linking } from 'react-native'
 import React from 'react'
 import { useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -19,7 +19,7 @@ const Heading = ({ back }) => {
             <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor:'black',paddingVertical:10}} >
               
 
-            <View style={{ width: '25%',paddingHorizontal:10 }}>
+            <View style={{ width: '25%' }}>
                     <Pressable style={{ padding: 10, alignItems: 'center' }}
                         onPress={() => navigate.openDrawer()}>
                         <Ionicons name="menu" size={24} color="gray" />
@@ -36,7 +36,7 @@ const Heading = ({ back }) => {
                 </View>
 
                 {back && (
-                    <View style={{ width: '25%' ,paddingHorizontal:10,}}>
+                    <View style={{ width: '25%' ,}}>
                         <Pressable style={{ flexDirection: 'row', padding: 10, alignItems: 'center' }}
                             onPress={() => navigate.goBack()}>
                             <Ionicons name="arrow-back" size={24} color="gray" />
@@ -55,7 +55,5 @@ export default Heading
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: Platform.OS === "android" ?
-            StatusBar.currentHeight : 0,
     }
 })

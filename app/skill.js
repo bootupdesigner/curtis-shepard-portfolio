@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View, Platform, Image, ScrollView } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { useGlobalSearchParams } from 'expo-router';
-import { skills } from './index';
-import Fontisto from '@expo/vector-icons/Fontisto';
+import { skills } from '../assets/data.js';
+import {Fontisto, Ionicons} from '@expo/vector-icons';
 import Heading from '../components/heading';
-import ecommerce2 from '../assets/images/Ecommerce1.jpeg'
 
 const Skill = () => {
   const glob = useGlobalSearchParams();
@@ -22,13 +21,12 @@ const Skill = () => {
   return (
     <SafeAreaView>
 
-      <View >
         <ScrollView>
         <Heading back={true} />
 
         <View style={{ paddingHorizontal: 10, justifyContent: 'space-evenly', alignItems: 'center', flex:1 }}>
-          <Image source={ecommerce2} style={{height:200,width:200,}}/>
           <Text style={{ fontWeight: 'bold', fontSize: 32, }}>{selectedSkill.shortDescription}</Text>
+
           {selectedSkill.dependent === 'Fontisto' ?
             <Fontisto name={selectedSkill.icon} size={48} color={selectedSkill.color} />
             : <Ionicons name={selectedSkill.icon} size={48} color={selectedSkill.color} />
@@ -44,7 +42,6 @@ const Skill = () => {
 
         </View>
         </ScrollView>
-      </View>
     </SafeAreaView>
   );
 };

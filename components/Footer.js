@@ -25,8 +25,8 @@ const Footer = () => {
     return (
         <>
             {isDesktopOrLaptop ? (
-                <View style={{backgroundColor:'black'}}>
-                    <View style={{ flexDirection: 'row', backgroundColor: 'grey', borderTopEndRadius:25, borderTopStartRadius:25, paddingBottom:10,}}>
+                <View style={{backgroundColor:'black',paddingTop:20,}}>
+                <View style={{ flexDirection: 'row', backgroundColor: 'grey', borderTopEndRadius:25, borderTopStartRadius:25, paddingBottom:10,}}>
                         <View style={{ paddingHorizontal: 10, width: '50%' }}>
                             <Text style={{ paddingVertical:10, marginVertical: 3, color: 'white', fontWeight: 'bold', fontSize: 18.72, textDecorationColor: 'white', textDecorationStyle: 'double', textDecorationLine: 'underline', }}>Contact</Text>
 
@@ -60,7 +60,7 @@ const Footer = () => {
                     <Text style={{ backgroundColor: 'black', color: 'white', fontSize: 16, textAlign: 'center', paddingVertical: 10 }}>Web App Design by Curtis Shepard</Text>
                 </View>
             ) : (
-                <View style={{backgroundColor:'black'}}>
+                <View style={{backgroundColor:'black',paddingTop:20,}}>
                     <View style={{ backgroundColor: 'grey', backgroundColor: 'grey', borderTopEndRadius:25, borderTopStartRadius:25,paddingBottom:10,}}>
                         <View style={{ paddingHorizontal: 10, }}>
                             <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18.72, textDecorationColor: 'white', textDecorationStyle: 'double', textDecorationLine: 'underline',paddingVertical:10, }}>Contact</Text>

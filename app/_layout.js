@@ -4,7 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 export default function Layout() {
     return (
         < Drawer screenOptions={{
-            headerShown:false,
+            headerShown: false,
         }}>
             <Drawer.Screen name='index' options={{
                 drawerLabel: "Home",
@@ -25,10 +25,8 @@ export default function Layout() {
             <Drawer.Screen
                 name='skill'
                 options={{
-                    drawerLabel: 'Skill',
-                    presentation: 'modal',
                     title: 'Skill',
-                    showDrawerLabel: false,
+                    drawerLabel: 'Skill'
 
                 }} />
 
@@ -37,6 +35,14 @@ export default function Layout() {
                 options={{
                     drawerLabel: 'Experience',
                     title: 'Experience',
+
+                }} />
+
+            <Drawer.Screen
+                name='curtis-shepard-resume'
+                options={{
+                    drawerLabel: 'Resume',
+                    title: 'Resume',
 
                 }} />
         </Drawer>
