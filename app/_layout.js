@@ -13,14 +13,7 @@ export default function Layout() {
                     <Ionicons name="home" size={32} color="black" />
                 ),
             }} />
-            <Drawer.Screen
-                name='portfolio/index'
-                options={{
-                    drawerLabel: "Portfolio",
-                    title: "Portfolio",
-                    tabBarIcon: () => (
-                        <Ionicons name="folder-open" size={32} color="black" />),
-                }} />
+            
 
             <Drawer.Screen
                 name='skill'

@@ -1,7 +1,6 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View, Image, Platform, StatusBar } from "react-native";
+import { SafeAreaView, ScrollView,  Text, View, Image, } from "react-native";
 import { useMediaQuery } from 'react-responsive'
 import '@expo/match-media'
-import { useLocalSearchParams, Link, useNavigation } from 'expo-router';
 
 import Skill from "../components/skill";
 import Heading from "../components/heading";
@@ -11,6 +10,9 @@ import Footer from "../components/Footer";
 
 import { about, skills } from '../assets/data.js';
 import ExperienceBlock from "../components/experienceBlock";
+
+
+import * as serviceWorkerRegistration from "../src/serviceWorkerRegistration";
 
 export default function Page() {
   const isDesktopOrLaptop = useMediaQuery({
@@ -128,9 +130,4 @@ export default function Page() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ?
-        StatusBar.currentHeight : 0,
-  },
-});
+serviceWorkerRegistration.register();
