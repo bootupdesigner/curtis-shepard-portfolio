@@ -1,6 +1,7 @@
 import { SafeAreaView, ScrollView,  Text, View, Image, } from "react-native";
 import { useMediaQuery } from 'react-responsive'
 import '@expo/match-media'
+import { StatusBar } from 'expo-status-bar';
 
 import Skill from "../components/skill";
 import Heading from "../components/heading";
@@ -12,7 +13,6 @@ import { about, skills } from '../assets/data.js';
 import ExperienceBlock from "../components/experienceBlock";
 
 
-import * as serviceWorkerRegistration from "../src/serviceWorkerRegistration";
 
 export default function Page() {
   const isDesktopOrLaptop = useMediaQuery({
@@ -75,7 +75,9 @@ export default function Page() {
           </ScrollView>
         </SafeAreaView>
       ) : (
+        <>
         <SafeAreaView>
+        <StatusBar style="light" />
             <ScrollView showsVerticalScrollIndicator={false}>
               <View>
                 <Heading back={false} />
@@ -122,6 +124,7 @@ export default function Page() {
 
             </ScrollView>
         </SafeAreaView>
+        </>
       )
       }
 
@@ -130,4 +133,3 @@ export default function Page() {
   );
 }
 
-serviceWorkerRegistration.register();
