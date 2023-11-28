@@ -6,7 +6,8 @@
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:web": "expo export -p web && workbox generateSW workbox-config.js"
   },
   "dependencies": {
     "@expo/match-media": "^0.4.0",
@@ -15,6 +16,7 @@
     "expo-constants": "~14.4.2",
     "expo-linking": "~5.0.2",
     "expo-router": "^2.0.0",
+    "expo-screen-orientation": "~6.0.6",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
@@ -26,13 +28,11 @@
     "react-native-screens": "~3.22.0",
     "react-native-web": "^0.19.9",
     "react-responsive": "^9.0.2"
-    
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@expo/webpack-config": "^0.13.3",
+    "@expo/webpack-config": "^18.1.3",
     "serve": "^12.0.0",
-    "workbox-webpack-plugin": "^6.1.5",
     "workbox-background-sync": "^6.1.5",
     "workbox-broadcast-update": "^6.1.5",
     "workbox-cacheable-response": "^6.1.5",
@@ -44,7 +44,8 @@
     "workbox-range-requests": "^6.1.5",
     "workbox-routing": "^6.1.5",
     "workbox-strategies": "^6.1.5",
-    "workbox-streams": "^6.1.5"
+    "workbox-streams": "^6.1.5",
+    "workbox-webpack-plugin": "^6.1.5"
   },
   "private": true
 }
