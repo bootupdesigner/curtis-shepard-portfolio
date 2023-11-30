@@ -3,8 +3,14 @@
     "name": "curtis shepard portfolio",
     "slug": "cs portfolio",
     "version": "1.0.0",
+    "icon": {
+      "image": "./assets/images/logo120.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#25292e"
+    },
     "web": {
       "description":"Curtis Shepard's web developer / designer portfolio. Hire a website designer with experience in mobile marketing for iOS and Android devices.",
+      "icon": "./assets/images/logo120.png",
       "bundler": "metro"
     },
     "scheme": "curtis-shepard-portfolio",
