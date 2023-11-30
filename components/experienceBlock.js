@@ -149,9 +149,9 @@ const ExperienceBlock = ({
                         </View>
                     )}
 
-                    {summary && (
-                        <Text style={{ fontSize: 16, color: 'gray', paddingVertical: 10 }}>{summary}</Text>
-                    )}
+                    {summary && summary.map((paragraph, index) => (
+                        <Text key={index} style={{ fontSize: 16, color: 'gray', paddingVertical: 10 }}>{paragraph}</Text>))
+                    }
 
                     {exampleWebsite && (
                         <Pressable
