@@ -16,6 +16,7 @@ export const skills = [
     id: 'wordpress',
     title: 'WordPress',
     shortDescription: 'E-Commerce Website Designs',
+    skillName: 'WordPress',
     icon: 'wordpress',
     color: '#096484',
     link: 'wordpress',
@@ -28,8 +29,8 @@ export const skills = [
     title: 'React Native',
     skillName: 'Mobile Marketing & Advertising',
     shortDescription: 'iOS & Android Development',
-    icon: 'react',
     link: 'frontend',
+    icon: 'react',
     color: '#61dbfb',
     description: '',
     dependent: 'Fontisto',
@@ -115,12 +116,16 @@ export const about = [
     ],
     websiteName: 'Classy Curvs',
     designExperience: 'WordPress Website Design',
+    time:'4+ Years',
     exampleWebsite: "https://classycurvs.com",
     summary: [
       `Classy Curvs is an e-commerce webite that I have designed managed since 2020. It has secure payments, SSL, SMTP, customer relationship management, and SEO. Customers can easily find the items they are searching for through the search bar, or by category and checkout with many payment options.`,
 
       `This WordPress website theme was customized with Elementor Pro. In the WordPress Dashboard, Store Admin, has access to customer relationship management, product uploads and product management. Admin can also receive online payments, purchase shipping labels and update customers on their order status.`
     ],
+    skill:'WordPress',
+    icon: 'wordpress',
+    color: '#096484',
   },
 
   {
@@ -128,6 +133,7 @@ export const about = [
     heading: 'Mobile App Design',
     designExperience: 'Mobile Marketing & Advertising',
     paragraph: `I've been designing app for iOS and Android mobile devices for 3+ years. Using React Native with Expo, the native app I develop can be used on iOS, Android, and Web. I use React Native Components to create an interactive user interface and Javascript and CSS to display information and enhance the user experience.`,
+    skill:'React Native',
     images: [
       {
         source: Android1,
@@ -146,11 +152,15 @@ export const about = [
       },
     ],
     websiteName: 'From Sneaker and Jeans',
+    time:'3+ Years',
     exampleWebsite: "https://pinkposgirls.com",
     summary: [
       `From Sneakers and Jeans, is a project that arrived from the need for the project owner to progress into the mobile marketing space. Previously you could purchase "from Sneakers and Jeans: The Teen Girls Guide to Getting Around", physically off the owners website. This app was developed for iOS and Android devices.`,
 
       `Designing 'from Sneakers and Jeans', allowed me to expand my creativity in iOS and Android design. Creating easy navigation for the users to access the valuable information in the app and making the app interactive was very important for this project. I recented updated the app to meet Android 13 standards and I am continuing to maintain the app weekly.`
     ],
+    icon: 'react',
+    color: '#61dbfb',
+
   }
 ];

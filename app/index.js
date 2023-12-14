@@ -1,7 +1,6 @@
-import { SafeAreaView, ScrollView,  Text, View, Image, } from "react-native";
+import { SafeAreaView, ScrollView, Text, View, Image, Platform, StatusBar } from "react-native";
 import { useMediaQuery } from 'react-responsive'
 import '@expo/match-media'
-import { StatusBar } from 'expo-status-bar';
 
 import Skill from "../components/skill";
 import Heading from "../components/heading";
@@ -75,10 +74,9 @@ export default function Page() {
           </ScrollView>
         </SafeAreaView>
       ) : (
-        <>
         <SafeAreaView>
-        <StatusBar style="light" />
-            <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={{ paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0 }} >
+            <ScrollView showsVerticalScrollIndicator={false} stickyHeaderIndices={[0]} >
               <View>
                 <Heading back={false} />
               </View>
@@ -123,8 +121,8 @@ export default function Page() {
               <Footer />
 
             </ScrollView>
+          </View>
         </SafeAreaView>
-        </>
       )
       }
 
