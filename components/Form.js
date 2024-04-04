@@ -191,7 +191,7 @@ const Form = () => {
                         shadowRadius: Platform.OS === 'web' || 'ios' ? 10 : null,
                     }}>
 
-                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact Curtis Shepard</Text>
+                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: 'orange' }} >Contact Curtis Shepard</Text>
                         <TextInput
                             mode='outlined'
                             label='Name'
@@ -216,6 +216,9 @@ const Form = () => {
                             numberOfLines={4}
                         />
 
+                        <Text style={{ fontWeight: 'bold', fontSize: 18.75, color: 'orange', lineHeight: '150%' }}>Position for Hire</Text>
+
+
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
                             {mailerState.services &&
                                 mailerState.services.map((service, index) => (
@@ -228,7 +231,7 @@ const Form = () => {
                                 ))}
                         </View>
 
-                        {Platform.OS==='web' &&     <ReCAPTCHA
+                        {Platform.OS === 'web' && <ReCAPTCHA
                             sitekey={process.env.RECAPTCHA_SITE_KEY}
                             onChange={onChange}
 
@@ -239,7 +242,7 @@ const Form = () => {
                             mode='text'
                             onPress={submitEmail}
                             disabled={loading}
-                            textColor='#800000'>
+                            textColor='orange'>
                             {loading ? 'Sending...' : 'Send'}
                         </Button>
                     </View>
@@ -248,7 +251,7 @@ const Form = () => {
 
             {isTablet && (
 
-                <View style={{ alignItems: 'center', paddingVertical: 30,  backgroundColor: 'white', paddingHorizontal: 30 }}>
+                <View style={{ alignItems: 'center', paddingVertical: 30, backgroundColor: 'white', paddingHorizontal: 30 }}>
                     <View style={{
                         borderWidth: 1,
                         borderColor: '#ffffff',
@@ -263,7 +266,7 @@ const Form = () => {
                         shadowRadius: Platform.OS === 'web' || 'ios' ? 10 : null,
                     }}>
 
-                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact Curtis Shepard</Text>
+                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: 'orange' }} >Contact Curtis Shepard</Text>
                         <TextInput
                             mode='outlined'
                             label='Name'
@@ -287,6 +290,9 @@ const Form = () => {
                             multiline
                             numberOfLines={4}
                         />
+
+                        <Text style={{ fontWeight: 'bold', fontSize: 18.75, color: 'orange', lineHeight: '150%' }}>Position for Hire</Text>
+
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
                             {mailerState.services &&
                                 mailerState.services.map((service, index) => (
@@ -299,7 +305,7 @@ const Form = () => {
                                 ))}
                         </View>
 
-                        {Platform.OS==='web' &&     <ReCAPTCHA
+                        {Platform.OS === 'web' && <ReCAPTCHA
                             sitekey={process.env.RECAPTCHA_SITE_KEY}
                             onChange={onChange}
 
@@ -310,7 +316,7 @@ const Form = () => {
                             mode='text'
                             onPress={submitEmail}
                             disabled={loading}
-                            textColor='#800000'>
+                            textColor='orange'>
                             {loading ? 'Sending...' : 'Send'}
                         </Button>
                     </View>
@@ -322,7 +328,7 @@ const Form = () => {
                         borderWidth: 1,
                         borderColor: '#ffffff',
                         borderRadius: 25, justifyContent: 'space-evenly',
-                        padding: 30,  width: 600, backgroundColor: 'white',
+                        padding: 30, width: 600, backgroundColor: 'white',
                         elevation: 10,
                         shadowColor: Platform.OS === 'web' || 'ios' ? '#00000090' : null,
                         shadowOffset: {
@@ -332,7 +338,7 @@ const Form = () => {
                         shadowRadius: Platform.OS === 'web' || 'ios' ? 10 : null,
                     }}>
 
-                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact Curtis Shepard</Text>
+                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: 'orange' }} >Contact Curtis Shepard</Text>
                         <TextInput
                             mode='outlined'
                             label='Name'
@@ -357,6 +363,8 @@ const Form = () => {
                             numberOfLines={4}
                         />
 
+
+                        <Text style={{ fontWeight: 'bold', fontSize: 18.75, color: 'orange', lineHeight: '150%' }}>Position for Hire</Text>
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
                             {mailerState.services &&
                                 mailerState.services.map((service, index) => (
@@ -369,7 +377,7 @@ const Form = () => {
                                 ))}
                         </View>
 
-                   {Platform.OS==='web' &&     <ReCAPTCHA
+                        {Platform.OS === 'web' && <ReCAPTCHA
                             sitekey={process.env.RECAPTCHA_SITE_KEY}
                             onChange={onChange}
 
@@ -380,7 +388,7 @@ const Form = () => {
                             mode='text'
                             onPress={submitEmail}
                             disabled={loading}
-                            textColor='#800000'>
+                            textColor='orange'>
                             {loading ? 'Sending...' : 'Send'}
                         </Button>
                     </View>
