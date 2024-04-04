@@ -1,5 +1,3 @@
-
-
 import { StyleSheet, Text, View, Platform, } from 'react-native';
 import React, { useState, } from 'react';
 import { TextInput, Button, Checkbox } from 'react-native-paper';
@@ -176,13 +174,14 @@ const Form = () => {
     };
 
     return (
-        <View style={{ alignItems: 'center', padding: 30, height: '100%', backgroundColor: 'white', }}>
-
-        <View style={{
+        <View>
+            {isMobile && (
+                <View style={{ alignItems: 'center', paddingVertical: 30, backgroundColor: 'white', paddingHorizontal: 10. }}>
+                    <View style={{
                         borderWidth: 1,
                         borderColor: '#ffffff',
                         borderRadius: 25, justifyContent: 'space-evenly',
-                        padding: 30, width: 600, backgroundColor: 'white',
+                        paddingHorizontal: 10, height: 800, backgroundColor: 'white',
                         elevation: 10,
                         shadowColor: Platform.OS === 'web' || 'ios' ? '#00000090' : null,
                         shadowOffset: {
@@ -192,59 +191,201 @@ const Form = () => {
                         shadowRadius: Platform.OS === 'web' || 'ios' ? 10 : null,
                     }}>
 
-            <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact Curtis Shepard</Text>
-            <TextInput
-                mode='outlined'
-                label='Name'
-                placeholder="Name"
-                value={mailerState.name}
-                onChangeText={(text) => handleStateChange('name', text)}
-            />
-            <TextInput
-                label='Email'
-                mode='outlined'
-                placeholder="Email"
-                value={mailerState.email}
-                onChangeText={(text) => handleStateChange('email', text)}
-            />
-            <TextInput
-                mode='outlined'
-                Label='Message'
-                placeholder="Message"
-                value={mailerState.message}
-                onChangeText={(text) => handleStateChange('message', text)}
-                multiline
-                numberOfLines={4}
-            />
-
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
-                {mailerState.services &&
-                    mailerState.services.map((service, index) => (
-                        <Checkbox.Item
-                            key={index}
-                            label={service.name}
-                            status={service.selected ? 'checked' : 'unchecked'}
-                            onPress={() => handleCheckboxChange(index)}
+                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact Curtis Shepard</Text>
+                        <TextInput
+                            mode='outlined'
+                            label='Name'
+                            placeholder="Name"
+                            value={mailerState.name}
+                            onChangeText={(text) => handleStateChange('name', text)}
                         />
-                    ))}
-            </View>
+                        <TextInput
+                            label='Email'
+                            mode='outlined'
+                            placeholder="Email"
+                            value={mailerState.email}
+                            onChangeText={(text) => handleStateChange('email', text)}
+                        />
+                        <TextInput
+                            mode='outlined'
+                            Label='Message'
+                            placeholder="Message"
+                            value={mailerState.message}
+                            onChangeText={(text) => handleStateChange('message', text)}
+                            multiline
+                            numberOfLines={4}
+                        />
 
-            {Platform.OS === 'web' && 
-            <ReCAPTCHA
-                sitekey={process.env.RECAPTCHA_SITE_KEY}
-                onChange={onChange}
+                        <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
+                            {mailerState.services &&
+                                mailerState.services.map((service, index) => (
+                                    <Checkbox.Item
+                                        key={index}
+                                        label={service.name}
+                                        status={service.selected ? 'checked' : 'unchecked'}
+                                        onPress={() => handleCheckboxChange(index)}
+                                    />
+                                ))}
+                        </View>
 
-            />}
+                        {Platform.OS==='web' &&     <ReCAPTCHA
+                            sitekey={process.env.RECAPTCHA_SITE_KEY}
+                            onChange={onChange}
 
-            <Button
-                icon='send'
-                mode='text'
-                onPress={submitEmail}
-                disabled={loading}
-                textColor='#800000'>
-                {loading ? 'Sending...' : 'Send'}
-            </Button>
-        </View>
+                        />}
+
+                        <Button
+                            icon='send'
+                            mode='text'
+                            onPress={submitEmail}
+                            disabled={loading}
+                            textColor='#800000'>
+                            {loading ? 'Sending...' : 'Send'}
+                        </Button>
+                    </View>
+                </View>
+            )}
+
+            {isTablet && (
+
+                <View style={{ alignItems: 'center', paddingVertical: 30,  backgroundColor: 'white', paddingHorizontal: 30 }}>
+                    <View style={{
+                        borderWidth: 1,
+                        borderColor: '#ffffff',
+                        borderRadius: 25, justifyContent: 'space-evenly',
+                        paddingHorizontal: 30, height: '100%', backgroundColor: 'white',
+                        elevation: 10,
+                        shadowColor: Platform.OS === 'web' || 'ios' ? '#00000090' : null,
+                        shadowOffset: {
+                            height: Platform.OS === 'web' || 'ios' ? 2 : null,
+                            width: Platform.OS === 'web' || 'ios' ? 2 : null
+                        },
+                        shadowRadius: Platform.OS === 'web' || 'ios' ? 10 : null,
+                    }}>
+
+                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact Curtis Shepard</Text>
+                        <TextInput
+                            mode='outlined'
+                            label='Name'
+                            placeholder="Name"
+                            value={mailerState.name}
+                            onChangeText={(text) => handleStateChange('name', text)}
+                        />
+                        <TextInput
+                            label='Email'
+                            mode='outlined'
+                            placeholder="Email"
+                            value={mailerState.email}
+                            onChangeText={(text) => handleStateChange('email', text)}
+                        />
+                        <TextInput
+                            mode='outlined'
+                            Label='Message'
+                            placeholder="Message"
+                            value={mailerState.message}
+                            onChangeText={(text) => handleStateChange('message', text)}
+                            multiline
+                            numberOfLines={4}
+                        />
+                        <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
+                            {mailerState.services &&
+                                mailerState.services.map((service, index) => (
+                                    <Checkbox.Item
+                                        key={index}
+                                        label={service.name}
+                                        status={service.selected ? 'checked' : 'unchecked'}
+                                        onPress={() => handleCheckboxChange(index)}
+                                    />
+                                ))}
+                        </View>
+
+                        {Platform.OS==='web' &&     <ReCAPTCHA
+                            sitekey={process.env.RECAPTCHA_SITE_KEY}
+                            onChange={onChange}
+
+                        />}
+
+                        <Button
+                            icon='send'
+                            mode='text'
+                            onPress={submitEmail}
+                            disabled={loading}
+                            textColor='#800000'>
+                            {loading ? 'Sending...' : 'Send'}
+                        </Button>
+                    </View>
+                </View>
+            )}
+            {isDesktopOrLaptop && (
+                <View style={{ alignItems: 'center', padding: 30, height: '100%', backgroundColor: 'white', }}>
+                    <View style={{
+                        borderWidth: 1,
+                        borderColor: '#ffffff',
+                        borderRadius: 25, justifyContent: 'space-evenly',
+                        padding: 30,  width: 600, backgroundColor: 'white',
+                        elevation: 10,
+                        shadowColor: Platform.OS === 'web' || 'ios' ? '#00000090' : null,
+                        shadowOffset: {
+                            height: Platform.OS === 'web' || 'ios' ? 2 : null,
+                            width: Platform.OS === 'web' || 'ios' ? 2 : null
+                        },
+                        shadowRadius: Platform.OS === 'web' || 'ios' ? 10 : null,
+                    }}>
+
+                        <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact Curtis Shepard</Text>
+                        <TextInput
+                            mode='outlined'
+                            label='Name'
+                            placeholder="Name"
+                            value={mailerState.name}
+                            onChangeText={(text) => handleStateChange('name', text)}
+                        />
+                        <TextInput
+                            label='Email'
+                            mode='outlined'
+                            placeholder="Email"
+                            value={mailerState.email}
+                            onChangeText={(text) => handleStateChange('email', text)}
+                        />
+                        <TextInput
+                            mode='outlined'
+                            Label='Message'
+                            placeholder="Message"
+                            value={mailerState.message}
+                            onChangeText={(text) => handleStateChange('message', text)}
+                            multiline
+                            numberOfLines={4}
+                        />
+
+                        <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
+                            {mailerState.services &&
+                                mailerState.services.map((service, index) => (
+                                    <Checkbox.Item
+                                        key={index}
+                                        label={service.name}
+                                        status={service.selected ? 'checked' : 'unchecked'}
+                                        onPress={() => handleCheckboxChange(index)}
+                                    />
+                                ))}
+                        </View>
+
+                   {Platform.OS==='web' &&     <ReCAPTCHA
+                            sitekey={process.env.RECAPTCHA_SITE_KEY}
+                            onChange={onChange}
+
+                        />}
+
+                        <Button
+                            icon='send'
+                            mode='text'
+                            onPress={submitEmail}
+                            disabled={loading}
+                            textColor='#800000'>
+                            {loading ? 'Sending...' : 'Send'}
+                        </Button>
+                    </View>
+                </View>
+            )}
         </View>
     );
 };
