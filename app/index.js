@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 
 import { about, skills } from '../assets/data.js';
 import ExperienceBlock from "../components/experienceBlock";
+import Form from "../components/Form.js";
 
 
 
@@ -69,6 +70,7 @@ export default function Page() {
                 }
               </ScrollView>
             </View >
+            <Form/>
             <Footer />
 
           </ScrollView>
@@ -118,6 +120,7 @@ export default function Page() {
                   }
                 </ScrollView>
               </View >
+              <Form/>
               <Footer />
 
             </ScrollView>
