@@ -1,12 +1,28 @@
-import { StyleSheet, Text, View, Platform , } from 'react-native';
-import {RECAPTCHA_SITE_KEY} from  '@env';
-import { TextInput, Button, Checkbox } from 'react-native-paper';
+
+
+import { StyleSheet, Text, View, Platform, } from 'react-native';
 import React, { useState, } from 'react';
+import { TextInput, Button, Checkbox } from 'react-native-paper';
+import '@expo/match-media';
+import { useMediaQuery } from "react-responsive";
 import axios from 'axios';
 import { Toast } from "react-native-toast-message/lib/src/Toast";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Form = () => {
+
+    const isMobile = useMediaQuery({
+        maxDeviceWidth: 480,
+    })
+
+    const isTablet = useMediaQuery({
+        minDeviceWidth: 480,
+        maxDeviceWidth: 1224,
+    });
+
+    const isDesktopOrLaptop = useMediaQuery({
+        minDeviceWidth: 1224,
+    });
 
     const [mailerState, setMailerState] = useState({
         name: "",
@@ -39,7 +55,6 @@ const Form = () => {
             },
         ]
     });
-
 
     const handleStateChange = (name, value) => {
         setMailerState((prevState) => ({
@@ -160,10 +175,24 @@ const Form = () => {
         }
     };
 
-
     return (
-        <View>
-            <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact TRI Financial Services for a Quote</Text>
+        <View style={{ alignItems: 'center', padding: 30, height: '100%', backgroundColor: 'white', }}>
+
+        <View style={{
+                        borderWidth: 1,
+                        borderColor: '#ffffff',
+                        borderRadius: 25, justifyContent: 'space-evenly',
+                        padding: 30, width: 600, backgroundColor: 'white',
+                        elevation: 10,
+                        shadowColor: Platform.OS === 'web' || 'ios' ? '#00000090' : null,
+                        shadowOffset: {
+                            height: Platform.OS === 'web' || 'ios' ? 2 : null,
+                            width: Platform.OS === 'web' || 'ios' ? 2 : null
+                        },
+                        shadowRadius: Platform.OS === 'web' || 'ios' ? 10 : null,
+                    }}>
+
+            <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold', color: '#800000' }} >Contact Curtis Shepard</Text>
             <TextInput
                 mode='outlined'
                 label='Name'
@@ -200,8 +229,9 @@ const Form = () => {
                     ))}
             </View>
 
-            {Platform.OS === 'web' && <ReCAPTCHA
-                sitekey={RECAPTCHA_SITE_KEY}
+            {Platform.OS === 'web' && 
+            <ReCAPTCHA
+                sitekey={process.env.RECAPTCHA_SITE_KEY}
                 onChange={onChange}
 
             />}
@@ -215,9 +245,18 @@ const Form = () => {
                 {loading ? 'Sending...' : 'Send'}
             </Button>
         </View>
-    )
-}
+        </View>
+    );
+};
 
-export default Form
+export default Form;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    input: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        margin: 10,
+        padding: 8,
+    },
+});
