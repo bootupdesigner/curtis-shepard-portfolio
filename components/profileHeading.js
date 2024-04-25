@@ -73,7 +73,7 @@ const ProfileHeading = ({ name, image, jobTitle, heading, paragraph }) => {
                             </Pressable>
 
 
-                            <Pressable accessibilityLabel="Visit Curtis Shepard's Portfolio" onPress={() => router.push('https://curtis-shepard-portfolio.netlify.app')} style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginVertical: 10, }} >
+                            <Pressable accessibilityLabel="Visit Curtis Shepard's Portfolio" onPress={() => router.push('https://bootupwebdesigns.com')} style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginVertical: 10, }} >
                                 <Ionicons name="globe-outline" size={24} color="gray" />
                                 <Text style={{ textAlign: 'left', paddingHorizontal: 10, fontSize: 18, color: 'gray', }}>Website</Text>
                             </Pressable>

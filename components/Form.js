@@ -26,6 +26,17 @@ const Form = () => {
         name: "",
         email: "",
         message: "",
+        phone: "",
+        contacts: [
+            {
+                name: "Phone",
+                selected: false
+            },
+            {
+                name: "Email",
+                selected: false
+            }
+        ],
         services: [
             {
                 name: `Full Stack Developer`,
@@ -72,6 +83,21 @@ const Form = () => {
             return {
                 ...prevState,
                 services: newServices,
+            };
+        });
+    };
+
+    const handleContactChange = (index) => {
+        setMailerState((prevState) => {
+            const newContacts = [...prevState.contacts];
+            newContacts[index] = {
+                ...newContacts[index],
+                selected: !newContacts[index].selected,
+            };
+
+            return {
+                ...prevState,
+                contacts: newContacts,
             };
         });
     };
@@ -134,6 +160,17 @@ const Form = () => {
                 email: "",
                 name: "",
                 message: "",
+                phone: "",
+                contacts: [
+                    {
+                        name: "Phone",
+                        selected: false
+                    },
+                    {
+                        name: "Email",
+                        selected: false
+                    }
+                ],
                 services: [
                     {
                         name: `Full Stack Developer`,
@@ -206,6 +243,26 @@ const Form = () => {
                             value={mailerState.email}
                             onChangeText={(text) => handleStateChange('email', text)}
                         />
+                        <TextInput
+                            label='Phone'
+                            mode='outlined'
+                            placeholder="Phone"
+                            value={mailerState.phone}
+                            onChangeText={(text) => handleStateChange('phone', text)}
+                        />
+
+                        <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
+                            {mailerState.contacts &&
+                                mailerState.contacts.map((contact, index) => (
+                                    <Checkbox.Item
+                                        key={index}
+                                        label={contact.name}
+                                        status={contact.selected ? 'checked' : 'unchecked'}
+                                        onPress={() => handleContactChange(index)}
+                                    />
+                                ))}
+                        </View>
+
                         <TextInput
                             mode='outlined'
                             Label='Message'
@@ -281,6 +338,26 @@ const Form = () => {
                             value={mailerState.email}
                             onChangeText={(text) => handleStateChange('email', text)}
                         />
+
+                        <TextInput
+                            label='Phone'
+                            mode='outlined'
+                            placeholder="Phone"
+                            value={mailerState.phone}
+                            onChangeText={(text) => handleStateChange('phone', text)}
+                        />
+
+                        <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
+                            {mailerState.contacts &&
+                                mailerState.contacts.map((contact, index) => (
+                                    <Checkbox.Item
+                                        key={index}
+                                        label={contact.name}
+                                        status={contact.selected ? 'checked' : 'unchecked'}
+                                        onPress={() => handleContactChange(index)}
+                                    />
+                                ))}
+                        </View>
                         <TextInput
                             mode='outlined'
                             Label='Message'
@@ -353,6 +430,26 @@ const Form = () => {
                             value={mailerState.email}
                             onChangeText={(text) => handleStateChange('email', text)}
                         />
+
+                        <TextInput
+                            label='Phone'
+                            mode='outlined'
+                            placeholder="Phone"
+                            value={mailerState.phone}
+                            onChangeText={(text) => handleStateChange('phone', text)}
+                        />
+
+                        <View style={{ flexDirection: 'row', flexWrap: 'wrap', }}>
+                            {mailerState.contacts &&
+                                mailerState.contacts.map((contact, index) => (
+                                    <Checkbox.Item
+                                        key={index}
+                                        label={contact.name}
+                                        status={contact.selected ? 'checked' : 'unchecked'}
+                                        onPress={() => handleContactChange(index)}
+                                    />
+                                ))}
+                        </View>
                         <TextInput
                             mode='outlined'
                             Label='Message'
